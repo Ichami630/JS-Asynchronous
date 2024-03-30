@@ -17,7 +17,7 @@ let order=(time,work)=>{
             },time)
         }
         else{
-            console.log("Sorry our shop is closed");
+            reject(console.log("Sorry our shop is closed"))
         }
     })
 }
