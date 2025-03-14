@@ -1,3 +1,27 @@
+//example of synchronous blocking code
+function fetchUser(){
+    //simulate 9mlsecs delay
+    start = Date.now()
+    if(Date.now() - start < 900){}
+    console.log("user fetched")
+}
+
+console.log("start")
+fetchUser() //blocks 3secs
+console.log("end")
+
+//callback - the old way
+function fetchAdmin(callback){
+    setTimeout(()=>{
+        console.log("Admin fetched")
+        callback()
+    },900)
+}
+console.log("admin fetch start")
+fetchAdmin(()=>{
+    console.log("admin fetch end")
+}) //now the browser waits silently, doesn't freeze and continue
+
 //callbacks
 let stock={
     fruits:["apple","banana","orange"],
