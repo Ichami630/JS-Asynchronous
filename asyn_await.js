@@ -1,3 +1,41 @@
+//async and await makes promises easier to write
+//async makes a function return a promise
+//await makes a function wait for a promise
+function fetchUser(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("User fetched");
+        },10000)
+    })
+}
+
+const run = async () => {
+    try {
+        console.log("Start")
+        const res = await fetchUser()
+        console.log(res)
+        console.log("end")
+    } catch (err) {
+        console.log("failed to run",err)
+    }
+}
+run();
+
+//real world use- fetch api
+
+const fetchData = async () => {
+    try {
+        let res = await fetch("https://jsonplaceholder.typicode.com/users")
+        let data = await res.json()
+        console.log(data)
+    } catch (err) {
+        console.log("failed to fetch data",err)
+    } finally{
+        console.log("data fetch end")
+    }
+}
+fetchData()
+
 let stock={
     fruits:["apple","banana","orange"],
     liquid:["water","ice"],
