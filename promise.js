@@ -1,3 +1,25 @@
+//some update that get displayed on the browser
+function displayer(value){
+    document.getElementById("demo").innerHTML = value
+}
+
+const myPromise = ()=> {
+    return new Promise((resolve,reject)=>{
+        const x = 1;
+        if(x==0){
+            resolve("Success")
+        }else{
+            reject("Error")
+        }
+    })
+}
+
+myPromise().then((data)=>{
+    displayer(data)
+}).catch(err=>{
+    displayer(err)
+}).finally(()=>{console.log("promise completed")})
+
 let stock={
     fruits:["apple","banana","orange"],
     liquid:["water","ice"],
